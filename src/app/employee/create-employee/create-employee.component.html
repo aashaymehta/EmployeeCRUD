@@ -1,0 +1,34 @@
+<!-- <h1>Add New Employee Form</h1> -->
+<form #createEmployee="ngForm" (ngSubmit)="onSave()">
+    <div>
+        <div>
+            <label>Name</label>
+            <input type="text" required id="empName" name="empName" #employeeName="ngModel" [(ngModel)]="employee.name" />
+            <span *ngIf="employeeName.touched && employeeName.invalid">Employee name is mandatory</span>
+        </div>
+        <div>
+            <label>Gender</label>
+            <input type="radio" id="gender" required name="gender" value="male" #genderControl="ngModel" [(ngModel)]="employee.gender" /> Male <br/>
+            <input type="radio" id="gender" required name="gender" value="female" #genderControl="ngModel" [(ngModel)]="employee.gender" /> Female
+            <span *ngIf="genderControl.touched && genderControl.invalid">Selecting Gender is mandatory</span>
+        </div>
+        <div>
+            <label>Date of Birth</label>
+            <input type="date" id="dateOfBirth" required name="dateOfBirth" #dobControl="ngModel" [(ngModel)]="employee.dateOfBirth" />
+            <span *ngIf="dobControl.touched && dobControl.invalid">Date of birth is mandatory</span>
+        </div>
+        <div>
+            <label>Department</label>
+            <input type="text" name="department" id="department" #deptControl="ngModel" [(ngModel)]="employee.department" />
+        </div>
+        <div ngModelGroup="mealPreference" #mealPreference="ngModelGroup">
+            <label>Meal Preference</label>
+            <input type="checkbox" name="veg" id="veg" #vegMeal="ngModel" [(ngModel)]="employee.veg" />Veg
+            <input type="checkbox" name="nonVeg" id="nonVeg" #nonVegMeal="ngModel" [(ngModel)]="employee.nonVeg" />Non Veg
+            <span *ngIf="mealPreference.touched && !(employee.veg || employee.nonVeg)">Select any meal preference</span> {{employee | json}}
+        </div>
+        <div>
+            <input type="submit" value="Save Employee" [disabled]="createEmployee.touched && createEmployee.invalid" />
+        </div>
+    </div>
+</form>

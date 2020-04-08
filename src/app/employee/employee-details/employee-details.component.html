@@ -1,0 +1,19 @@
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Gender</th>
+            <th>DateOfBirth</th>
+            <th>Department</th>
+        </tr>
+        <tr>
+            <td>{{employee.name}}</td>
+            <td><a [routerLink]="['/employee', employee.id]">{{employee.id}}</a></td>
+            <td>{{employee.gender}}</td>
+            <td>{{employee.dateOfBirth}}</td>
+            <td>{{employee.department}}</td>
+        </tr>
+    </table>
+</div>
+<button (click)="onBackButtonClick()">BackToEmployees</button>
