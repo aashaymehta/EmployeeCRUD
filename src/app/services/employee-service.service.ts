@@ -36,4 +36,11 @@ export class EmployeeService {
     }
   }
 
+  public deleteEmployee(employeeId: number): void {
+    const empIndex = this.employees.findIndex(x => x.id === employeeId);
+    if (empIndex !== -1){
+      this.employees.splice(empIndex, 1);
+    }
+  }
+
 }

@@ -29,4 +29,9 @@ export class EmployeeDetailsComponent implements OnInit {
     this.router.navigate(['create', this.empId]);
   }
 
+  onDeleteButtonClick(): void {
+    this.employeeService.deleteEmployee(this.empId);
+    this.router.navigate(['employees']);
+  }
+
 }
