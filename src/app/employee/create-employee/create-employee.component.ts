@@ -25,12 +25,17 @@ export class CreateEmployeeComponent implements OnInit {
    ngOnInit(): void {
     const empId = +this.route.snapshot.paramMap.get('id');
     if (empId !== 0) {
-    this.employee = this.employeeService.getEmployee(empId);
+    this.employee = Object.assign({}, this.employeeService.getEmployee(empId));
     }
   }
 
   onSave(): void {
+    if (this.employee.id !== -1) {
+      this.employeeService.updateEmployee(this.employee);
+    }
+    else {
     this.employeeService.saveEmployee(this.employee);
+    }
     this.createEmployee.reset();
     this.router.navigate(['employees']);
   }

@@ -21,11 +21,11 @@
             <label>Department</label>
             <!-- <input type="text" name="department" id="department" #deptControl="ngModel" [(ngModel)]="employee.department" /> -->
             <select name="department" required id="department" #deptControl="ngModel" [(ngModel)]="employee.department">
-                <option value="1">IT</option>
-                <option value="2">HR</option>
-                <option value="3">Admin</option>
-                <option value="4">Payroll</option>
-                <option value="5">Help Desk</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Admin">Admin</option>
+                <option value="Payroll">Payroll</option>
+                <option value="Help Desk">Help Desk</option>
             </select>
             <span *ngIf="deptControl.touched && deptControl.invalid">Please select any department</span>
         </div>
