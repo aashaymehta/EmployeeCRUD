@@ -11,7 +11,7 @@ import { CreateEmployeeCanDeactivateRouteGuardService } from './services/route-g
 const routes: Routes = [
   {path: 'employees', component: EmployeeListComponent},
   {path: 'employee/:id', component: EmployeeDetailsComponent},
-  {path: 'create', component: CreateEmployeeComponent,
+  {path: 'create/:id', component: CreateEmployeeComponent,
   canDeactivate: [CreateEmployeeCanDeactivateRouteGuardService]},
   {path: 'home', component: HomeComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},

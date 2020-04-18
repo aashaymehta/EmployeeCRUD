@@ -11,6 +11,7 @@ import { EmployeeDetailsComponent } from './employee/employee-details/employee-d
 import { HomeComponent } from './employee/home/home.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import {CreateEmployeeCanDeactivateRouteGuardService} from './services/route-guard/create-employee-canDeactivateRouteGuard.service';
+import { AccountNumberValidatorDirective } from './shared/validators/accountNumberValidator.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {CreateEmployeeCanDeactivateRouteGuardService} from './services/route-gua
     PageNotFoundComponent,
     EmployeeDetailsComponent,
     HomeComponent,
-    CreateEmployeeComponent
+    CreateEmployeeComponent,
+    AccountNumberValidatorDirective
   ],
   imports: [
     BrowserModule,

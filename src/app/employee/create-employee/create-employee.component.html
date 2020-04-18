@@ -8,8 +8,8 @@
         </div>
         <div>
             <label>Gender</label>
-            <input type="radio" id="gender" required name="gender" value="male" #genderControl="ngModel" [(ngModel)]="employee.gender" /> Male <br/>
-            <input type="radio" id="gender" required name="gender" value="female" #genderControl="ngModel" [(ngModel)]="employee.gender" /> Female
+            <input type="radio" id="genderMale" required name="gender" value="male" #genderControl="ngModel" [(ngModel)]="employee.gender" /> Male <br/>
+            <input type="radio" id="genderFemale" required name="gender" value="female" #genderControl="ngModel" [(ngModel)]="employee.gender" /> Female
             <span *ngIf="genderControl.touched && genderControl.invalid">Selecting Gender is mandatory</span>
         </div>
         <div>
@@ -19,13 +19,32 @@
         </div>
         <div>
             <label>Department</label>
-            <input type="text" name="department" id="department" #deptControl="ngModel" [(ngModel)]="employee.department" />
+            <!-- <input type="text" name="department" id="department" #deptControl="ngModel" [(ngModel)]="employee.department" /> -->
+            <select name="department" required id="department" #deptControl="ngModel" [(ngModel)]="employee.department">
+                <option value="1">IT</option>
+                <option value="2">HR</option>
+                <option value="3">Admin</option>
+                <option value="4">Payroll</option>
+                <option value="5">Help Desk</option>
+            </select>
+            <span *ngIf="deptControl.touched && deptControl.invalid">Please select any department</span>
         </div>
         <div ngModelGroup="mealPreference" #mealPreference="ngModelGroup">
             <label>Meal Preference</label>
             <input type="checkbox" name="veg" id="veg" #vegMeal="ngModel" [(ngModel)]="employee.veg" />Veg
             <input type="checkbox" name="nonVeg" id="nonVeg" #nonVegMeal="ngModel" [(ngModel)]="employee.nonVeg" />Non Veg
             <span *ngIf="mealPreference.touched && !(employee.veg || employee.nonVeg)">Select any meal preference</span> {{employee | json}}
+        </div>
+        <div ngModelGroup="accountNumberGroup" #accountNumberGroup="ngModelGroup" accountNumberValidator>
+            <div>
+                <label>Account Number</label>
+                <input type="password" name="accountNumber" [(ngModel)]="employee.accountNumber" #accountNumber="ngModel" />
+            </div>
+            <div>
+                <label>Confirm Account Number</label>
+                <input type="text" name="cnfAccountNumber" [(ngModel)]="employee.cnfAccountNumber" #cnfAccountNumber="ngModel" />
+            </div>
+            <span *ngIf="accountNumber.touched && cnfAccountNumber.touched && accountNumberGroup?.errors?.notEqual">Account number & Confirm Account number does not match</span>
         </div>
         <div>
             <input type="submit" value="Save Employee" [disabled]="createEmployee.touched && createEmployee.invalid" />

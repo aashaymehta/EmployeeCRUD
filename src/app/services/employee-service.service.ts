@@ -7,11 +7,11 @@ export class EmployeeService {
   private employees: Employee[];
   constructor() {
     this.employees = [
-      {name: 'Employee1', id: 101, gender: 'male', dateOfBirth: null, department: 'IT'},
-      {name: 'Employee2', id: 102, gender: 'female', dateOfBirth: null, department: 'IT'},
-      {name: 'Employee3', id: 103, gender: 'male', dateOfBirth: null, department: 'HR'},
-      {name: 'Employee4', id: 104, gender: 'female', dateOfBirth: null, department: 'Payroll'},
-      {name: 'Employee5', id: 105, gender: 'male', dateOfBirth: null, department: 'Admin'},
+      {name: 'Employee1', id: 101, gender: 'male', dateOfBirth: new Date('04/07/2020'), department: 'IT'},
+      {name: 'Employee2', id: 102, gender: 'female', dateOfBirth: new Date('2020-04-07'), department: 'IT'},
+      {name: 'Employee3', id: 103, gender: 'male', dateOfBirth: new Date('2020-04-07'), department: 'HR'},
+      {name: 'Employee4', id: 104, gender: 'female', dateOfBirth: new Date('2020-04-07'), department: 'Payroll'},
+      {name: 'Employee5', id: 105, gender: 'male', dateOfBirth: new Date('2020-04-07'), department: 'Admin'},
     ];
   }
 

@@ -11,17 +11,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EmployeeDetailsComponent implements OnInit {
 
   employee: Employee;
+  empId: number;
   constructor(private employeeService: EmployeeService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
-    const empId = +this.route.snapshot.paramMap.get('id');
-    this.employee = this.employeeService.getEmployee(empId);
+    this.empId = +this.route.snapshot.paramMap.get('id');
+    this.employee = this.employeeService.getEmployee(this.empId);
   }
 
   onBackButtonClick(): void {
     this.router.navigate(['employees']);
+  }
+
+  onEditButtonClick(): void {
+    this.router.navigate(['create', this.empId]);
   }
 
 }

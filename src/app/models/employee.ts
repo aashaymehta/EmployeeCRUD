@@ -6,4 +6,6 @@ export class Employee {
     department: string;
     veg?: boolean;
     nonVeg?: boolean;
+    accountNumber?: string;
+    cnfAccountNumber?: string;
 }
