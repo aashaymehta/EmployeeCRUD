@@ -16,7 +16,7 @@
         </tr>
         <tr *ngFor="let employee of employees">
             <ng-container *ngIf="(nameFilter != null && employee.name.indexOf(nameFilter) !== -1) || nameFilter == null">
-                <td>{{employee.name}} {{ employee.name.indexOf(nameFilter) }}</td>
+                <td>{{employee.name}} </td>
                 <td><a [routerLink]="['/employee', employee.id]">{{employee.id}}</a></td>
                 <td>{{employee.gender}}</td>
                 <td>{{employee.dateOfBirth | date}}</td>
