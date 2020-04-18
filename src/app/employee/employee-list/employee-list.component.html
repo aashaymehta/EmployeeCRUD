@@ -1,4 +1,11 @@
 <div>
+    <div>
+        <label>Search by Name </label>
+        <input type="textbox" name="nameFilter" [(ngModel)]="nameFilter" #nFilter="ngModel" />
+    </div>
+    <div>
+        {{nameFilter}}
+    </div>
     <table>
         <tr>
             <th>Name</th>
@@ -8,11 +15,13 @@
             <th>Department</th>
         </tr>
         <tr *ngFor="let employee of employees">
-            <td>{{employee.name}}</td>
-            <td><a [routerLink]="['/employee', employee.id]">{{employee.id}}</a></td>
-            <td>{{employee.gender}}</td>
-            <td>{{employee.dateOfBirth | date}}</td>
-            <td>{{employee.department}}</td>
+            <ng-container *ngIf="(nameFilter != null && employee.name.indexOf(nameFilter) !== -1) || nameFilter == null">
+                <td>{{employee.name}} {{ employee.name.indexOf(nameFilter) }}</td>
+                <td><a [routerLink]="['/employee', employee.id]">{{employee.id}}</a></td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.dateOfBirth | date}}</td>
+                <td>{{employee.department}}</td>
+            </ng-container>
         </tr>
     </table>
 </div>

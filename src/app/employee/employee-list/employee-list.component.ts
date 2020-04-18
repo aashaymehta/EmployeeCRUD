@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeListComponent implements OnInit {
 
   employees: Employee[];
+  nameFilter: string;
   constructor(
               // private employeeService: EmployeeService,
               private route: ActivatedRoute) {
