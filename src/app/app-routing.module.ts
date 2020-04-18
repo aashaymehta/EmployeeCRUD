@@ -7,10 +7,11 @@ import { HomeComponent } from './employee/home/home.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { CreateEmployeeCanDeactivateRouteGuardService } from './services/route-guard/create-employee-canDeactivateRouteGuard.service';
 import { EmployeeDetailsCanActivateRouteGuardService } from './services/route-guard/employee-details-canActivateRouteGuard.service';
+import { EmployeeListResolveGuardService } from './services/route-guard/employeeList-resolveGuard.service';
 
 
 const routes: Routes = [
-  {path: 'employees', component: EmployeeListComponent},
+  {path: 'employees', component: EmployeeListComponent, resolve: {employeeListKey: EmployeeListResolveGuardService}},
   {path: 'employee/:id', component: EmployeeDetailsComponent,
   canActivate: [EmployeeDetailsCanActivateRouteGuardService]},
   {path: 'create/:id', component: CreateEmployeeComponent,

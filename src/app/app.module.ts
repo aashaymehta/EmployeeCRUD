@@ -13,6 +13,7 @@ import { CreateEmployeeComponent } from './employee/create-employee/create-emplo
 import {CreateEmployeeCanDeactivateRouteGuardService} from './services/route-guard/create-employee-canDeactivateRouteGuard.service';
 import { AccountNumberValidatorDirective } from './shared/validators/accountNumberValidator.directive';
 import { EmployeeDetailsCanActivateRouteGuardService } from './services/route-guard/employee-details-canActivateRouteGuard.service';
+import { EmployeeListResolveGuardService } from './services/route-guard/employeeList-resolveGuard.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EmployeeDetailsCanActivateRouteGuardService } from './services/route-gu
     AppRoutingModule,
     FormsModule
   ],
-  providers: [EmployeeService, CreateEmployeeCanDeactivateRouteGuardService, EmployeeDetailsCanActivateRouteGuardService],
+  providers: [EmployeeService, CreateEmployeeCanDeactivateRouteGuardService, EmployeeDetailsCanActivateRouteGuardService,
+    EmployeeListResolveGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
