@@ -6,11 +6,13 @@ import { PageNotFoundComponent } from './employee/page-not-found.component';
 import { HomeComponent } from './employee/home/home.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { CreateEmployeeCanDeactivateRouteGuardService } from './services/route-guard/create-employee-canDeactivateRouteGuard.service';
+import { EmployeeDetailsCanActivateRouteGuardService } from './services/route-guard/employee-details-canActivateRouteGuard.service';
 
 
 const routes: Routes = [
   {path: 'employees', component: EmployeeListComponent},
-  {path: 'employee/:id', component: EmployeeDetailsComponent},
+  {path: 'employee/:id', component: EmployeeDetailsComponent,
+  canActivate: [EmployeeDetailsCanActivateRouteGuardService]},
   {path: 'create/:id', component: CreateEmployeeComponent,
   canDeactivate: [CreateEmployeeCanDeactivateRouteGuardService]},
   {path: 'home', component: HomeComponent},
